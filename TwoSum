@@ -1,0 +1,22 @@
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+nums = [2,7,11,15]
+target = 9
+
+var twoSum = function(nums, target) {
+    const numbers = new Map()
+    for(i = 0; i < nums.length; i++){
+        numbers.set(nums[i],i)
+    }
+    for(i = 0; i < nums.length; i++){
+        firstnumber = nums[i]
+        needed = target - firstnumber
+        if(numbers.has(needed) && numbers.get(needed) !== i){
+            return [i, numbers.get(needed)]
+        }
+    }
+};
+console.log(twoSum(nums,target))
